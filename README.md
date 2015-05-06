@@ -10,3 +10,9 @@
 ## Forschungsstand
 
 ## Auswertungen der kantonalen Steuerdaten Bern
+
+### Wieviel Steuern wären 2002 bis 2012 eingenommen worden?
+
+Besteuerung der erhaltenen Erbschaften mit 20% nach Abzug von 2Mio CHF
+
+![Einnahmen Erbschaftssteuer](https://raw.githubusercontent.com/hackstutz/datenblog/master/abbildungen/einnahmen.png)
