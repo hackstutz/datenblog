@@ -13,7 +13,7 @@
 
 *save "G:\stick\bern\merged_erben.dta"
 
-use "G:\stick\bern\merged_erben.dta"
+use "G:\stick\bern\merged_erben.dta", clear
 
 recode ERB (-1000000/100000=1) (100001/2000000=2) (2000001/.=3), gen(erbkat)
 
@@ -24,6 +24,25 @@ graph bar (sum) einnahmen, over(stj)
 graph export C:/Users/Hackstutz/Dropbox/Git/datenblog/abbildungen/einnahmen.png, replace
 graph export C:/Users/Hackstutz/Dropbox/Git/datenblog/abbildungen/einnahmen.pdf, replace
 
+* Wieviel wurde 2011 verschenkt?
+
+su einnahmen
+
+*    Variable |       Obs        Mean    Std. Dev.       Min        Max
+*-------------+--------------------------------------------------------
+*   einnahmen |   6561932    101.1795    29728.78          0   4.12e+07
+
+. di r(N)*r(mean)/11
+*60357543
+
+* durchschnittlich hätten pro Jahr 60Mio CHF erhoben werden können
+
+gen stb_SCHENK = cond(SCHENK_ERH>2000000, SCHENK_ERH-2000000,0)
+su stb_SCHENK if stj==2011
+di r(N)*r(mean)*0.2
+* 4.741e+08
+
+* 474Mio CHF potentielle Einnahmen wurden 2011 verschenkt. Den Einnahmendurchschnitt zugrunde gelegt entspricht das 7.85 Jahre entgangene Steuereinnahmen
 
 
 **************************************************************************************************************
