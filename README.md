@@ -16,3 +16,15 @@
 Besteuerung der erhaltenen Erbschaften mit 20% nach Abzug von 2Mio CHF
 
 ![Einnahmen Erbschaftssteuer](https://raw.githubusercontent.com/hackstutz/datenblog/master/abbildungen/einnahmen.png)
+
+### Wie wirkt die Umverteilung?
+
+Wie würden sich die Vermögenssummen von Unvermögenden und Reichen ändern, wenn die Erbschaften gleichmässig auf alle 2012 in Bern besteuerten Personen verteilt würden?
+
+#### Nur für ein besteuertes Jahr (2012)
+
+![Umverteilung 2012](https://raw.githubusercontent.com/hackstutz/datenblog/master/abbildungen/umverteilung2012.png)
+
+#### Was wäre, wenn seit 2002 bereits besteuert würde?
+
+![Umverteilung 2002-2012](https://raw.githubusercontent.com/hackstutz/datenblog/master/abbildungen/umverteilung20022012.png)
