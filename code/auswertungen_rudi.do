@@ -106,3 +106,23 @@ graph export C:/Users/Hackstutz/Dropbox/Git/datenblog/abbildungen/umverteilung20
 graph export C:/Users/Hackstutz/Dropbox/Git/datenblog/abbildungen/umverteilung20022012.pdf, replace
 
 
+
+**************************************************************************************************************
+*** Simulation Datenbasis ************************************************************************************
+**************************************************************************************************************
+
+
+* nehmen wir 2012
+preserve
+keep if stj==2012
+* quintile bilden
+pctile quintile=TOTVERM, nq(5)
+
+* wieviel vermögen ist in den quintilen?
+table quintile, c(sum TOTVERM)
+
+* wie hoch ist die steuerbare masse?
+su TOTVERM if TOTVERM>2000000
+di (r(mean)-2000000)*r(N)
+
+restore
