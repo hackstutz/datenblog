@@ -18,10 +18,14 @@ shinyUI(fluidPage(
                   "Vermögensverteilung nach 0 bis 1000 Jahren:",
                   min = 0,
                   max = 1000,
-                  value = 60)
-    ),
-    
-    # Show a plot of the generated distribution
+                  value = 60),
+    sliderInput("steuersatz",
+                "bei einem Steuersatz von 0 bis 100%:",
+                min = 0,
+                max = 100,
+                value = 20)
+  ),
+  # Show a plot of the generated distribution
     mainPanel(
       plotOutput("distPlot",width="100%")
     )
