@@ -128,29 +128,33 @@ xtile quintile=rein_verm, nq(5)
 * wieviel vermögen ist in den quintilen?
 table quintile, c(sum rein_verm)
 
-* wie hoch ist die steuerbare masse?
+* wie hoch ist die steuerbare masse? für 2M Freibetrag? 
+qui su rein_verm if rein_verm>2000000
+local stb_masse2M = (r(mean)-2000000)*r(N)
+di `stb_masse2M'
+
+* und für andere szenarien?
 qui su rein_verm if rein_verm>1000000
-di (r(mean)-1000000)*r(N)
-local stb_masse = (r(mean)-1000000)*r(N)
-* 5.044e+10
+local stb_masse1M = (r(mean)-1000000)*r(N)
+di `stb_masse1M'
 
-*wie hoch wären die einnahmen 2012?
-qui su einnahmen
-di r(mean)*r(N)
-local einnahmen2012 = r(mean)*r(N)
+qui su rein_verm if rein_verm>10000000	
+local stb_masse10M = (r(mean)-10000000)*r(N)
+di `stb_masse10M'
 
-*wie hoch sind die schenkungen 2012?
-qui su stb_schenkung
-di r(mean)*r(N)
-local schenk_ausg2012 = r(mean)*r(N)
-* die packen wir mit in den Nenner weil sie im Zähler auch als effektive Einnahme vorkommen
+qui su rein_verm if rein_verm>500000
+local stb_masse500K = (r(mean)-500000)*r(N)
+di `stb_masse500K'
 
-di `einnahmen2012'*5/(`stb_masse'+`schenk_ausg2012')
-
-* Kehrwert entspricht der Umlaufgeschwindigkeit eines Franken in Jahren
-di 1/(`einnahmen2012'*5/(`stb_masse'+`schenk_ausg2012'))
-*ca. 60 Jahre
-
-* ob man die Schenkungen in den Nenner nehmen will ist diskussionswürdig. Genaugenommen müssten dort die "potentiellen Schenkungen" stehn. 
+* Umlaufgeschwindigkeit 
+* (vereinfacht, alle Schenkungen+Erben durch alle Vermögen)
+* evtl. werden hohe Vermögen schneller oder langsamer vererbt als niedrige Vermögen. 
+su rein_verm
+local rv = r(mean)*r(N)
+gen erbschenk = ERB+SCHENK_AUSG
+su erbschenk if rein_verm!=.
+local erbschenk = r(mean)*r(N)
+di `erbschenk'/`rv'
+* 62 Jahre
 
 restore
