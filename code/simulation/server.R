@@ -10,13 +10,15 @@ shinyServer(function(input, output) {
     freibetragszenario <- reactive({
       dataset <- input$file1$datapath
     })
-    freibetragszenarien <- c("500k"=7.044e+10,"1M"=5.044e+10,"2M"=3.558e+10,"10M"=1.587e+10)
+    freibetragszenarien <- c("500k"=7.044e+10,"1M"=5.044e+10,"2M"=3.558e+10,"3M"=2.908e+10,"5M"=2.255e+10,"10M"=1.587e+10)
     freibetragszenario <- reactive({
       switch(input$freibetragszenario,
              "500k" = 1,
              "1M" = 2,
              "2M" = 3,
-             "10M" = 4)
+             "3M" = 4,
+             "5M" = 5,
+             "10M" = 6)
     })
     erbsubstanz <- c(0,0,0,0,freibetragszenarien[freibetragszenario()])/summe # Summe der Reinvermögen die über 2Mio pro Steuereinheit hinaus gehen.
     quintile <- c(-5.18e+09,4.28e+08,3.65e+09,1.61e+10,1.23e+11)/summe-erbsubstanz # Quintile aus den Daten Bern 2012, Reinvermögen

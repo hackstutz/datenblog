@@ -6,7 +6,7 @@ shinyUI(fluidPage(
   # Application title
   titlePanel("Umverteilungswirkung einer Erbschaftssteuer"),
   
-  tags$p("Eingeteilt in fünf Gruppen (die 20% Ärmsten, die 20% Reichsten und die jeweils 20% dazwischen) zeigt die unten stehende Darstellung Anhand untenstehender Grafik lässt sich die umverteilende Wirkung von unterschiedlich ausgestalteten Erbschaftssteuern simulieren. Ausgangspunkt ist die reale Vermögensverteilung der Berner Steuerhaushalte des Jahres 2012. Eingeteilt in fünf Gruppen (die 20% Ärmsten, die 20% Reichsten und die jeweils 20% dazwischen) sind die Anteile der jeweiligen Gruppen am Gesamtvermögen dargestellt. Blau eingefärbt sind die Vermögensteile unter dem Freibetrag, rot ist der Teil über dem Freibetrag, der von der Erbschaftssteuer tangiert ist. Besteuertes Vermögen wird vereinfachend auf alle Gruppen umverteilt. Dieser Teil ist grün eingefärbt. Die vereinfachten Annahmen der Simulation werden im Detail weiter unten beschrieben."),
+  tags$p("Anhand untenstehender Grafik lässt sich die umverteilende Wirkung von unterschiedlich ausgestalteten Erbschaftssteuern simulieren. Ausgangspunkt ist die reale Vermögensverteilung der Berner Steuerhaushalte des Jahres 2012. Eingeteilt in fünf Gruppen (die 20% Ärmsten, die 20% Reichsten und die jeweils 20% dazwischen) sind die Anteile der jeweiligen Gruppen am Gesamtvermögen dargestellt. Blau eingefärbt sind die Vermögensteile unter dem Freibetrag, rot ist der Teil über dem Freibetrag, der von der Erbschaftssteuer tangiert ist. Besteuertes Vermögen wird vereinfachend auf alle Gruppen umverteilt. Dieser Teil ist grün eingefärbt. Die vereinfachten Annahmen der Simulation werden im Detail weiter unten beschrieben."),
   tags$p("Über den ersten Schiebebalken können Sie variieren, zu welchem Zeitpunkt (wieviele Jahre nach Einführung einer Erbschaftssteuer) Sie die Vermögensverteilung betrachten wollen. Der zweite Schiebebalken gibt Ihnen die Möglichkeit, die Auswirkung unterschiedlicher Steuersätze zu erkunden. Eine dritte Einstellung, die zur Simulation justiert werden kann, ist die Höhe des Freibetrags."),
   
   # Sidebar with a slider input for the number of bins
@@ -23,7 +23,7 @@ shinyUI(fluidPage(
                 max = 100,
                 value = 20),
     selectInput("freibetragszenario", "Szenario für den Freibetrag:", 
-              choices = c("500.000 CHF"="500k", "1 Million CHF"="1M", "2 Millionen CHF"="2M","10 Millionen CHF"="10M"),selected="2M")
+              choices = c("500.000 CHF"="500k", "1 Million CHF"="1M", "2 Millionen CHF"="2M","3 Millionen CHF"="3M","5 Millionen CHF"="5M","10 Millionen CHF"="10M"),selected="2M")
   ),
   
   # Show a plot of the generated distribution
